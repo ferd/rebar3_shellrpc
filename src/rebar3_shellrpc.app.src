@@ -1,0 +1,15 @@
+{application, rebar3_shellrpc,
+ [{description, "A plugin to send commands to a running rebar3 shell"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, ["Fred Hebert"]},
+  {licenses, ["BSD"]},
+  {links, [{"Github", "https://github.com/ferd/rebar3_shellrpc"}]}
+ ]}.
