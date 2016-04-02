@@ -21,7 +21,7 @@ Add the plugin to your rebar config, possibly the global one in
 ```
 
 Use the `dist_node` option of rebar 3.1.x or a nightly build in any project
-ifor which you want the feature to work:
+for which you want the feature to work:
 
 ```erlang
 {dist_node, [{sname, myproject}]}.
