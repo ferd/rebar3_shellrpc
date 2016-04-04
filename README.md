@@ -15,9 +15,7 @@ Add the plugin to your rebar config, possibly the global one in
 `~/.config/rebar3/rebar.config` :
 
 ```erlang
-{plugins, [
-    {rebar3_shellrpc, ".*", {git, "https://github.com/ferd/rebar3_shellrpc.git", {branch, "master"}}}
-]}.
+{plugins, [rebar3_shellrpc]}.
 ```
 
 Use the `dist_node` option of rebar 3.1.x or a nightly build in any project

@@ -2,7 +2,7 @@
 
 -export([init/1, do/1, format_error/1]).
 
--define(PROVIDER, rebar3_shellrpc).
+-define(PROVIDER, shellrpc).
 -define(DEPS, []).
 
 %% ===================================================================
@@ -15,7 +15,7 @@ init(State) ->
             providers:create([
                 {name, ?PROVIDER},
                 {module, ?MODULE},
-                {bare, false},
+                {bare, true},
                 {deps, ?DEPS},
                 {example, "rebar3 shellrpc <command>"},
                 {short_desc, "Call running shell agent."},
@@ -100,6 +100,8 @@ connect_remote(Node) -> net_kernel:connect_node(Node).
 
 send_command(State, Node) ->
     case strip_flags(rebar_state:command_args(State)) of
+        [] ->
+            rebar_api:debug("No command submitted~n", []);
         [Command] ->
             rebar_api:debug("Sending command ~s to ~p~n", [Command, Node]),
             rpc:call(Node, r3, do, [list_to_atom(Command)]);
